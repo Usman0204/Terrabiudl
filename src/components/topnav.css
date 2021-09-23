@@ -1,0 +1,23 @@
+.inner-contents a {
+    text-decoration: none !important;
+    color: #fff;
+    padding: 10px;
+    font-size: 18px ;
+
+
+  }
+  .inner-contents a:hover {
+    border-bottom: 1px solid rgba(2, 206, 242, 0.5);;
+    color: #fff !important;
+    
+  }
+
+  .active {
+        border-bottom: 1px solid rgba(2, 206, 242, 0.5) !important;
+  }
+  .marrgins_bottom{
+    margin-bottom: 30px;
+  }
+  .w-35{
+    width: 35px;
+  }
