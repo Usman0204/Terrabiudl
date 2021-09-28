@@ -1,5 +1,5 @@
 let Environment = {
-    YfethContractAddress: "0xaFfd9488c8640f0eb005992F79163bBf8D0C7ab4",
+    YfethContractAddress: "0x02aA5cdF7350924de2FA88041Da99993Cb021219",
   
   };
   
