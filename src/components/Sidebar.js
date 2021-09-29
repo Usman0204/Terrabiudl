@@ -56,18 +56,18 @@ const Sidebar = () => {
           <div className="row pt20">
             <div className="col-sm-6">
               <div className="inner-side">
-               <Link className="grey">
+               <a className="grey">
                   <img src="assets/img/yfeth-assets/copy-icon.svg" alt="" className="img-fluid" />
                   <span> Copy Address</span>
-                </Link>
+                </a>
               </div>
             </div>
             <div className="col-sm-6">
               <div className="inner-side">
-               <Link className="grey">
+               <a className="grey">
                   <img src="assets/img/yfeth-assets/external-link-icon.svg" alt="" className="img-fluid" />
                   <span> View on BscScan Explorer</span>
-                </Link>
+                </a>
               </div>
             </div>
           </div>
@@ -81,23 +81,23 @@ const Sidebar = () => {
         </div>
         <div className="inner-tile1 text-left pt__30">
           <ul>
-            <li>
-             <Link  className="img-fluid">
+            <li  >
+             <a className="img-fluid" href="https://terrabuild.app/" target="_blank">
                 <img src="assets/img/yfeth-assets/home-icon.svg" alt="" className="img-fluid" />
                 <span>	&nbsp;Homepage</span>
-              </Link>
+              </a>
             </li>
             <li>
-             <Link  className="img-fluid">
+             <a  className="img-fluid" href="http://terrabuild.app/wp-content/uploads/2021/09/TerraBuild-Updated-WP.pdf" target="_blank">
                 <img src="assets/img/yfeth-assets/guide-icon.svg" alt="" className="img-fluid" />
-                <span> &nbsp;Guide</span>
-              </Link>
+                <span> &nbsp;Whitepaper</span>
+              </a>
             </li>
             <li>
-             <Link className="img-fluid">
+             <a className="img-fluid"  href="https://bscscan.com/token/0x02aa5cdf7350924de2fa88041da99993cb021219" target="_blank">
                 <img src="assets/img/yfeth-assets/contract-icon.svg" alt="" className="img-fluid" />
                 <span> &nbsp;Contract</span>
-              </Link>
+              </a>
             </li>
           </ul>
         </div>

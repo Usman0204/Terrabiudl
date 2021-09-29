@@ -9,17 +9,17 @@ const Topnav = () => {
         <div className="col-sm-6">
           <div className="inner-contents">
             <ul className="list-inline">
-              <li className="list-inline-item">
+              <li className="list-inline-items">
                 <NavLink exact activeClassName="active" to="/">
                   Dashboard
                 </NavLink>
               </li>
-              <li className="list-inline-item">
+              <li className="list-inline-items">
                 <NavLink  exact activeClassName="active" to="/transfer" >
                   Disruptive Transfer
                 </NavLink>
               </li>
-              <li className="list-inline-item">
+              <li className="list-inline-items">
                 <NavLink  exact activeClassName="active" to="/farms">
                   Farms
                 </NavLink>
@@ -31,9 +31,9 @@ const Topnav = () => {
           <div className="inner-content1">
             <ul className="list-inline">
               <li className="list-inline-item">
-                <Link >
+                <a href="https://t.me/terrabuilld" target="_blank">
                   <img src="assets/img/yfeth-assets/telegram-icon.svg" alt="" className="img-fluid w-35" />
-                </Link>
+                </a>
               </li>
               {/* <li className="list-inline-item">
                 <Link >
@@ -41,9 +41,9 @@ const Topnav = () => {
                 </Link>
               </li> */}
               <li className="list-inline-item">
-                <Link >
+                <a >
                   <img src="assets/img/yfeth-assets/facebook-icon.svg" alt="" className="img-fluid w-35" />
-                </Link>
+                </a>
               </li>
               {/* <li className="list-inline-item">
                 <Link >
@@ -61,19 +61,19 @@ const Topnav = () => {
                 </Link>
               </li> */}
               <li className="list-inline-item">
-                <Link >
+                <a >
                   <img src="assets/img/yfeth-assets/instagram-icon.svg" alt="" className="img-fluid w-35" />
-                </Link>
+                </a>
               </li>
               <li className="list-inline-item">
-                <Link >
+                <a href="https://twitter.com/TBuidl?s=09" target="_blank">
                   <img src="assets/img/yfeth-assets/twitter-icon.svg" alt="" className="img-fluid w-35" />
-                </Link>
+                </a>
               </li>
               <li className="list-inline-item">
-                <Link >
+                <a >
                   <img src="assets/img/yfeth-assets/discord-icon.svg" alt="" className="img-fluid w-35" />
-                </Link>
+                </a>
               </li>
             </ul>
           </div>

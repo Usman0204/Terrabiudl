@@ -54,3 +54,11 @@
   .pt__20{
    margin-top: 20px;
   }
+
+  @media only screen and (max-width: 600px) {
+
+    p{
+      font-size: 11px;
+    }
+
+  }

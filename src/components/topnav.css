@@ -21,3 +21,16 @@
   .w-35{
     width: 35px;
   }
+  .list-inline-items {
+    display: inline-block;
+    margin-bottom: 0px;
+}
+  
+  @media only screen and (max-width: 600px) {
+
+    .list-inline-items {
+      display: block;
+      margin-bottom: 20px;
+  }
+
+  }
