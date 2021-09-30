@@ -52,7 +52,7 @@ const Sidebar = () => {
         <div className="inner-tile text-left ptb10 pt__30">
           <h3>Wallet Information</h3>
           <h6>Your Address:</h6>
-          <p>{Useraccount ? Useraccount : ""}</p>
+          <p className="account">{Useraccount ? Useraccount : ""}</p>
           <div className="row pt20">
             <div className="col-sm-6">
               <div className="inner-side">
