@@ -53,7 +53,7 @@ const Farms = () => {
                 <div className="col-sm-8">
                   <h6 className="common-g">TBD <span className="grey">EARN</span>
                   </h6>
-                  <h4>0.0000</h4>
+                  <h4>-</h4>
                 </div>
                 <div className="col-sm-4">
                   <div className="inner-circle">
@@ -81,7 +81,7 @@ const Farms = () => {
                           <div className="modal-dialog" role="document">
                             <div className="modal-content">
                               <div className="modal-header brdr">
-                                <h5 className="modal-title" id="exampleModalLabel">Deposite
+                                <h5 className="modal-title" id="exampleModalLabel">Deposit
                                   TBD/BNB LP Token</h5>
                                 <button type="button" className="common-g close" data-dismiss="modal" aria-label="Close">
                                   <span aria-hidden="true">×</span>
@@ -90,7 +90,7 @@ const Farms = () => {
                               <div className="modal-body">
                                 <div className="row ptb20">
                                   <div className="col-sm-12 text-right">
-                                    <h5>371.866585213518513
+                                    <h5>-
                                       TBD/BNB LP Available
                                     </h5>
                                     <div className="form-group">
@@ -133,7 +133,7 @@ const Farms = () => {
                             <div className="modal-content">
                               <div className="modal-header brdr">
                                 <h5 className="modal-title" id="exampleModalLabel">Deposite
-                                  TBD/BNB LP Token</h5>
+                                  TBD/BUSD LP Token</h5>
                                 <button type="button" className="common-g close" data-dismiss="modal" aria-label="Close">
                                   <span aria-hidden="true">×</span>
                                 </button>
@@ -141,7 +141,7 @@ const Farms = () => {
                               <div className="modal-body">
                                 <div className="row ptb20">
                                   <div className="col-sm-12 text-right">
-                                    <h5>371.866585213518513
+                                    <h5>-
                                       TBD/BNB LP Available
                                     </h5>
                                     <div className="form-group">

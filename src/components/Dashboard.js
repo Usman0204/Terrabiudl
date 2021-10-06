@@ -21,14 +21,15 @@ const Dashboard = () => {
                                 <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
                               </ol>
                               <div className="carousel-inner">
-                                <div className="carousel-item active">
-                                  <img className="d-block w-100" src="assets/img/yfeth-assets/binance-image.png" alt="First slide"/>
+                              <div className="carousel-item active">
+                                  <img className="d-block w-100" src="assets/img/yfeth-assets/MediumBanner.png" alt="Second slide"/>
                                 </div>
-                                <div className="carousel-item">
-                                  <img className="d-block w-100" src="assets/img/yfeth-assets/binance-image.png" alt="Second slide"/>
+                                <div className="carousel-item ">
+                                  <img className="d-block w-100" src="assets/img/yfeth-assets/ClaimBNB.png" alt="First slide"/>
                                 </div>
+                           
                                 <div className="carousel-item">
-                                  <img className="d-block w-100" src="assets/img/yfeth-assets/binance-image.png" alt="Third slide"/>
+                                  <img className="d-block w-100" src="assets/img/yfeth-assets/TerraBuildYieldFarm.png" alt="Third slide"/>
                                 </div>
                               </div>
                             </div>  

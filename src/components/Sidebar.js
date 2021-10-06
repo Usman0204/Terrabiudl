@@ -57,16 +57,16 @@ const Sidebar = () => {
             <div className="col-sm-6">
               <div className="inner-side">
                <a className="grey">
-                  <img src="assets/img/yfeth-assets/copy-icon.svg" alt="" className="img-fluid" />
-                  <span> Copy Address</span>
+                  {/* <img src="assets/img/yfeth-assets/copy-icon.svg" alt="" className="img-fluid" /> */}
+                  {/* <span> Copy Address</span> */}
                 </a>
               </div>
             </div>
             <div className="col-sm-6">
               <div className="inner-side">
                <a className="grey">
-                  <img src="assets/img/yfeth-assets/external-link-icon.svg" alt="" className="img-fluid" />
-                  <span> View on BscScan Explorer</span>
+                  {/* <img src="assets/img/yfeth-assets/external-link-icon.svg" alt="" className="img-fluid" /> */}
+                  {/* <span> View on BscScan Explorer</span> */}
                 </a>
               </div>
             </div>

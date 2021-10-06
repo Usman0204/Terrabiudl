@@ -32,7 +32,7 @@ const TransactionInfo = () => {
                                     <ul className="list-inline">
                                         <li className="list-inline-item">
                                             <Link>
-                                                <span className="size">TBD 100000 </span>&nbsp;
+                                                <span className="size">TBD - </span>&nbsp;
                                                 <img src="assets/img/yfeth-assets/copy-icon.svg" alt="" className="img-fluid"/>
                                             </Link>
                                         </li>
@@ -42,7 +42,7 @@ const TransactionInfo = () => {
 
                                          <li className="list-inline-item">
                                            <Link>
-                                            <span className="size">BNB 1.7436</span>&nbsp;
+                                            <span className="size">BNB -</span>&nbsp;
                                             <img src="assets/img/yfeth-assets/copy-icon.svg" alt="" className="img-fluid"/>
                                                
                                            </Link>
@@ -72,7 +72,7 @@ const TransactionInfo = () => {
                                                 <span className="size">YFETH 100,000,000,000</span>
                                                 <img src="assets/img/yfeth-assets/copy-icon.svg" alt="" className="img-fluid"/>
                                             </Link> */}
-                                            <span>$ 123765658</span>
+                                            <span>-</span>
                                         </li>
                                          {/* <li className="list-inline-item">
                                             <span className="common-g">|</span>
@@ -110,7 +110,7 @@ const TransactionInfo = () => {
                                     <ul className="list-inline">
                                         <li className="list-inline-item">
                                             <Link>
-                                                <span className="size">BNB 100,000,000,000</span>
+                                                <span className="size">BNB -</span>
                                                 {/* <img src="assets/img/yfeth-assets/copy-icon.svg" alt="" className="img-fluid"/> */}
                                             </Link>
                                         </li>
@@ -120,7 +120,7 @@ const TransactionInfo = () => {
 
                                          <li className="list-inline-item">
                                            <Link>
-                                            <span className="size">BUSD 1.7436</span>
+                                            <span className="size">BUSD -</span>
                                             {/* <img src="assets/img/yfeth-assets/copy-icon.svg" alt="" className="img-fluid"/> */}
                                                
                                            </Link>
@@ -143,14 +143,14 @@ const TransactionInfo = () => {
                             </div> 
                              <div className="col-sm-9">
                                 <div className=" text-center">
-                                    <h5>Current 1 mil YFETH Price</h5>
+                                    <h5>Current - TBD Price</h5>
                                     <ul className="list-inline">
                                         <li className="list-inline-item">
                                             {/* <Link>
                                                 <span className="size">YFETH 100,000,000,000</span>
                                                 <img src="assets/img/yfeth-assets/copy-icon.svg" alt=""  className="img-fluid"/>
                                             </Link> */}
-                                               <span>$ 0.0023567789</span>
+                                               <span>-</span>
                                         </li>
                                          {/* <li className="list-inline-item">
                                             <span className="common-g">|</span>

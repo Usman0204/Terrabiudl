@@ -35,16 +35,16 @@ const Topnav = () => {
                   <img src="assets/img/yfeth-assets/telegram-icon.svg" alt="" className="img-fluid w-35" />
                 </a>
               </li>
-              {/* <li className="list-inline-item">
-                <Link >
-                  <img src="assets/img/yfeth-assets/medium-icon.svg" alt="" className="img-fluid w-35" />
-                </Link>
-              </li> */}
               <li className="list-inline-item">
+                <a  href="https://terrabuild.medium.com/" target="_blank">
+                  <img src="assets/img/yfeth-assets/medium-icon.svg" alt="" className="img-fluid w-35" />
+                </a>
+              </li>
+              {/* <li className="list-inline-item">
                 <a >
                   <img src="assets/img/yfeth-assets/facebook-icon.svg" alt="" className="img-fluid w-35" />
                 </a>
-              </li>
+              </li> */}
               {/* <li className="list-inline-item">
                 <Link >
                   <img src="assets/img/yfeth-assets/linkedin-icon.svg" alt="" className="img-fluid w-35" />
@@ -60,21 +60,21 @@ const Topnav = () => {
                   <img src="assets/img/yfeth-assets/github-icon.svg" alt="" className="img-fluid w-35" />
                 </Link>
               </li> */}
-              <li className="list-inline-item">
+              {/* <li className="list-inline-item">
                 <a >
                   <img src="assets/img/yfeth-assets/instagram-icon.svg" alt="" className="img-fluid w-35" />
                 </a>
-              </li>
+              </li> */}
               <li className="list-inline-item">
-                <a href="https://twitter.com/TBuidl?s=09" target="_blank">
+                <a href="https://twitter.com/terrabuilld?s=09" target="_blank">
                   <img src="assets/img/yfeth-assets/twitter-icon.svg" alt="" className="img-fluid w-35" />
                 </a>
               </li>
-              <li className="list-inline-item">
+              {/* <li className="list-inline-item">
                 <a >
                   <img src="assets/img/yfeth-assets/discord-icon.svg" alt="" className="img-fluid w-35" />
                 </a>
-              </li>
+              </li> */}
             </ul>
           </div>
         </div>
