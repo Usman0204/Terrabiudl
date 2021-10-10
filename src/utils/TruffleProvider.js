@@ -1,5 +1,6 @@
 import HDWalletProvider from "@truffle/hdwallet-provider";
 import yfethabi from './yfethAbi.json'
+import masterchefAbi from './masterchefAbi.json'
 import Environment from './Environment';
 import Web3 from "web3";   
 import getWeb3 from "./Providers";
@@ -17,6 +18,27 @@ const getContractForTruffle=()=>{
         yfethabi,
         Environment.YfethContractAddress,
     )
+}
+
+const getContractForTruffleMasterchef=()=>{
+    
+    const web3=getTruffleProvider();
+    return new web3.eth.Contract(
+        masterchefAbi,
+        Environment.masterChefContractAddress,
+    )
+
+}
+
+console.log("here",getContractForTruffleMasterchef);
+
+const Approvefarms= async ()=>{
+    
+    const useraccount=getaccount();
+    const result = Web3.utils.toChecksumAddress(Environment.masterChefContractAddress);
+    
+    const approveofcontract= await getContractForTruffle().methods.approve(result, '10000000').send({from:useraccount});
+   return approveofcontract
 }
 // console.log("getContractForTruffle",getContractForTruffle());
 const getallvalue = async (Useraccount, txiContract) =>  {
@@ -57,4 +79,4 @@ const getContractBalance= async()=>{
 
 
 export default getTruffleProvider;
-export {getContractForTruffle,getallvalue,MaxtransactionAmount,getContractBalance};
+export {getContractForTruffle,getallvalue,MaxtransactionAmount,getContractBalance,Approvefarms};

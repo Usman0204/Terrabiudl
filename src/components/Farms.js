@@ -1,23 +1,129 @@
-import React from 'react'
+import React, { useEffect, setState } from 'react'
 import { Link } from 'react-router-dom';
 import './farms.css';
-
+import getWeb3 from '../utils/Providers';
+import { getContract } from '../utils/Providers';
+import { getContractMasterChef } from '../utils/Providers';
+import { getaccount } from '../utils/Providers'
+import { ContarctAction } from '../redux/action';
+import { useDispatch } from "react-redux";
+import Environment from '../utils/Environment'
 const Farms = () => {
+
+  const dispatch = useDispatch();
+  const [Useraccount, setAccount] = React.useState();
+  const [txcontract, settxContract] = React.useState();
+  const [checkuser, setcheckuser] = React.useState(false);
+  const [amount, setamount] = React.useState();
+  const [deposit, setDeposit] = React.useState();
+  const [withdraw, setWithdraw] = React.useState();
+  useEffect(() => {
+    //  DisruptiveTransfer();
+  }, [])
   const [show, setshow] = React.useState(true)
-  const showinput = () => {
+  const showinput = async () => {
+
     if (show) {
+      const accounts = await getaccount()
+      console.log("here are the accounts====>", accounts);
+        const web3 = getWeb3()
+      // if(Useraccount!==undefined && txcontract !==undefined) {
+      getContract().methods.approve(Environment.masterChefContractAddress, '10000000').send(
+        {
+          from: accounts[0],
+        }
+      ).on("error", (err) => {
+        console.log("Error", err);
+
+      });
       setshow(false)
     } else {
       setshow(true)
+
+      // if(amount>=0){
+      //     alert("enter amount")
+      // }
+
+      // }
+      // else{
+      //     ConnectToWallet();
+      // }
+
+    }
+
+    const ConnectToWallet = async () => {
+      if (checkuser && Useraccount !== undefined) {
+        setcheckuser(false);
+        console.log("disconnect");
+        setAccount(undefined);
+      } else {
+        const accounts = await getaccount()
+
+        console.log("here are the accounts====>", accounts);
+        if (accounts) {
+          setAccount(accounts[0]);
+          const Contract = getContract()
+          // console.log("Contract",Contract);
+          settxContract(Contract);
+        }
+        setcheckuser(true);
+      }
 
     }
     // console.log("harvest");
 
   }
-  const showenable = () => {
-    // console.log("enable");
+  const showenable = async () => {
+    const accounts = await getaccount()
+    getContractMasterChef().methods.deposit('0', '0').send(
+      {
+        from: accounts[0],
+
+      }
+    ).on("error", (err) => {
+      console.log("Error", err);
+
+    });
   }
 
+
+  const confirmDeposit = async () => {
+    const accounts = await getaccount()
+    if(deposit>0){
+      getContractMasterChef().methods.deposit('0', deposit).send(
+        {
+          from: accounts[0],
+  
+        }
+      ).on("error", (err) => {
+        console.log("Error", err);
+  
+      });
+    }
+    else{
+      alert("Enter deposit amount")
+    }
+  
+  }
+
+  const confirmWithdraw = async () => {
+    const accounts = await getaccount()
+    if(withdraw>0){
+      getContractMasterChef().methods.withdraw('0', withdraw).send(
+        {
+          from: accounts[0],
+  
+        }
+      ).on("error", (err) => {
+        console.log("Error", err);
+  
+      });
+    }
+    else{
+      alert("Enter withdraw amount")
+    }
+  
+  }
   return (
     <>
       <section className="main-bg">
@@ -94,7 +200,9 @@ const Farms = () => {
                                       TBD/BNB LP Available
                                     </h5>
                                     <div className="form-group">
-                                      <input type="text" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder={0} />
+                                      <input type="text" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder={0}  value={deposit} onChange={(e)=>{
+                                        setDeposit(e.target.value)
+                                      }} />
                                       <div className="inner-max">
                                         <ul className="list-inline">
                                           <li className="list-inline-item">
@@ -116,7 +224,7 @@ const Farms = () => {
                                         <button className="btn-common">Cancel</button>
                                       </li>
                                       <li className="list-inline-item">
-                                        <button className="btn-common">Confirm</button>
+                                        <button className="btn-common"  onClick={confirmDeposit} >Confirm</button>
                                       </li>
                                     </ul>
                                   </div>
@@ -132,7 +240,7 @@ const Farms = () => {
                           <div className="modal-dialog" role="document">
                             <div className="modal-content">
                               <div className="modal-header brdr">
-                                <h5 className="modal-title" id="exampleModalLabel">Deposite
+                                <h5 className="modal-title" id="exampleModalLabel">Withdraw
                                   TBD/BUSD LP Token</h5>
                                 <button type="button" className="common-g close" data-dismiss="modal" aria-label="Close">
                                   <span aria-hidden="true">×</span>
@@ -145,7 +253,9 @@ const Farms = () => {
                                       TBD/BNB LP Available
                                     </h5>
                                     <div className="form-group">
-                                      <input type="number" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder={0} />
+                                      <input type="number" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder={0} value={withdraw} onChange={(e)=>{
+                                        setWithdraw(e.target.value)
+                                      }} />
                                       <div className="inner-max">
                                         <ul className="list-inline">
                                           <li className="list-inline-item">
@@ -167,7 +277,7 @@ const Farms = () => {
                                         <button className="btn-common">Cancel</button>
                                       </li>
                                       <li className="list-inline-item">
-                                        <button className="btn-common">Confirm</button>
+                                        <button className="btn-common" onClick={confirmWithdraw}>Confirm</button>
                                       </li>
                                     </ul>
                                   </div>

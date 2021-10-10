@@ -8,7 +8,7 @@ const Farmswrap = () => {
                 <div className="col-sm-6 p_remove">
                 <Farms/> 
                 </div>
-                <div className="col-sm-6 p_00">
+                {/* <div className="col-sm-6 p_00">
                 <Farms/> 
                 </div>
                 <div className="col-sm-6 p_remove">
@@ -16,7 +16,7 @@ const Farmswrap = () => {
                 </div>
                 <div className="col-sm-6 p_00">
                 <Farms/> 
-                </div>
+                </div> */}
             </div>
            
                {/* <Farms/> */}
