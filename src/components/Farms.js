@@ -16,8 +16,10 @@ const Farms = () => {
   const [checkuser, setcheckuser] = React.useState(false);
   const [amount, setamount] = React.useState();
   const [deposit, setDeposit] = React.useState();
+  const [balaceOf,setbalanceof]=React.useState();
   const [withdraw, setWithdraw] = React.useState();
   useEffect(() => {
+    balanceofContract();
     //  DisruptiveTransfer();
   }, [])
   const [show, setshow] = React.useState(true)
@@ -86,7 +88,17 @@ const Farms = () => {
     });
   }
 
+  const balanceofContract = async () => {
+    const accounts = await getaccount()
+  
+     const b=await getContract().methods.balanceOf(accounts[0]).call()
+     setbalanceof(b)
+      // .on("error", (err) => {
+      //   console.log("Error", err);
+      // });
+  }
 
+  console.log(balaceOf);
   const confirmDeposit = async () => {
     const accounts = await getaccount()
     if(deposit>0){
@@ -145,7 +157,7 @@ const Farms = () => {
                 </div>
                 <div className="col-sm-2">
                   <div className="inner-circle">
-                    <span>10x</span>
+                    <span>3x</span>
                   </div>
                 </div>
               </div>
@@ -162,9 +174,9 @@ const Farms = () => {
                   <h4>-</h4>
                 </div>
                 <div className="col-sm-4">
-                  <div className="inner-circle">
+                  {/* <div className="inner-circle">
                     <button type="button" className="btn btn-common" onClick={showenable} disabled={show}>Harvest</button>
-                  </div>
+                  </div> */}
                 </div>
               </div>
               {show ?
@@ -196,8 +208,7 @@ const Farms = () => {
                               <div className="modal-body">
                                 <div className="row ptb20">
                                   <div className="col-sm-12 text-right">
-                                    <h5>-
-                                      TBD/BNB LP Available
+                                    <h5>{balaceOf} TBD/BNB LP Available
                                     </h5>
                                     <div className="form-group">
                                       <input type="text" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder={0}  value={deposit} onChange={(e)=>{
@@ -249,8 +260,7 @@ const Farms = () => {
                               <div className="modal-body">
                                 <div className="row ptb20">
                                   <div className="col-sm-12 text-right">
-                                    <h5>-
-                                      TBD/BNB LP Available
+                                    <h5>{balaceOf} TBD/BNB LP Available
                                     </h5>
                                     <div className="form-group">
                                       <input type="number" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder={0} value={withdraw} onChange={(e)=>{
