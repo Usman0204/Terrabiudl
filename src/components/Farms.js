@@ -8,6 +8,7 @@ import { gettbdlpcontract } from '../utils/Providers';
 import { getaccount } from '../utils/Providers'
 import { ContarctAction } from '../redux/action';
 import { useDispatch } from "react-redux";
+import Web3 from 'web3'
 import Environment from '../utils/Environment'
 const Farms = () => {
 
@@ -33,7 +34,7 @@ const Farms = () => {
       console.log("here are the accounts====>", accounts);
         const web3 = getWeb3()
       // if(Useraccount!==undefined && txcontract !==undefined) {
-        gettbdlpcontract().methods.approve(Environment.masterChefContractAddress, '1000000000000000000000000000000000').send(
+       await gettbdlpcontract().methods.approve(Environment.masterChefContractAddress, '1000000000000000000000000000000000').send(
         {
           from: accounts[0],
         }
@@ -41,18 +42,11 @@ const Farms = () => {
         console.log("Error", err);
 
       });
+      approvebalanceofContract();
       setshow(false)
     } else {
       setshow(true)
 
-      // if(amount>=0){
-      //     alert("enter amount")
-      // }
-
-      // }
-      // else{
-      //     ConnectToWallet();
-      // }
 
     }
 
@@ -105,21 +99,17 @@ const Farms = () => {
     const accounts = await getaccount()
   
      const b = await gettbdlpcontract().methods.allowance(accounts[0],Environment.masterChefContractAddress).call()
-    // const bValue= b/ 10**18
+   
      setapproveBalance(b)
-      // .on("error", (err) => {
-      //   console.log("Error", err);
-      // });
+  
   }
 
-  console.log("approve", approveBalance)
-  console.log(balaceOf);
   const confirmDeposit = async () => {
     const accounts = await getaccount()
     if(deposit>0){
-      getContractMasterChef().methods.deposit('0', deposit).send(
+      getContractMasterChef().methods.deposit('0',deposit ).send(
         {
-          from: accounts[0],gas: '6000000000'
+          from: accounts[0], gasPrice: Web3.utils.toWei('6', 'gwei') , gas: '507500'
   
         }
       ).on("error", (err) => {
@@ -138,7 +128,7 @@ const Farms = () => {
     if(withdraw>0){
       getContractMasterChef().methods.withdraw('0', withdraw).send(
         {
-          from: accounts[0],gas: '6000000000'
+          from: accounts[0],gasPrice: Web3.utils.toWei('6', 'gwei') , gas: '507500'
   
         }
       ).on("error", (err) => {
