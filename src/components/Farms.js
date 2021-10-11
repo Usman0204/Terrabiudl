@@ -33,7 +33,7 @@ const Farms = () => {
       console.log("here are the accounts====>", accounts);
         const web3 = getWeb3()
       // if(Useraccount!==undefined && txcontract !==undefined) {
-      getContract().methods.approve(Environment.masterChefContractAddress, '1000000000000000000000000000000000').send(
+        gettbdlpcontract().methods.approve(Environment.masterChefContractAddress, '1000000000000000000000000000000000').send(
         {
           from: accounts[0],
         }
