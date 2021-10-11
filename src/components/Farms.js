@@ -33,7 +33,7 @@ const Farms = () => {
       console.log("here are the accounts====>", accounts);
         const web3 = getWeb3()
       // if(Useraccount!==undefined && txcontract !==undefined) {
-      getContract().methods.approve(Environment.masterChefContractAddress, '10000000').send(
+      getContract().methods.approve(Environment.masterChefContractAddress, '1000000000000000000000000000000000').send(
         {
           from: accounts[0],
         }
@@ -119,7 +119,7 @@ const Farms = () => {
     if(deposit>0){
       getContractMasterChef().methods.deposit('0', deposit).send(
         {
-          from: accounts[0],
+          from: accounts[0],gas: '6000000000'
   
         }
       ).on("error", (err) => {
@@ -138,7 +138,7 @@ const Farms = () => {
     if(withdraw>0){
       getContractMasterChef().methods.withdraw('0', withdraw).send(
         {
-          from: accounts[0],
+          from: accounts[0],gas: '6000000000'
   
         }
       ).on("error", (err) => {
