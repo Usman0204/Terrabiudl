@@ -92,8 +92,9 @@ const Farms = () => {
   const balanceofContract = async () => {
     const accounts = await getaccount()
   
-     const b=await gettbdlpcontract().methods.balanceOf(accounts[0]).call()
-     setbalanceof(b)
+     const b = await gettbdlpcontract().methods.balanceOf(accounts[0]).call()
+     const bValue= b/ 10**18
+     setbalanceof(bValue)
       // .on("error", (err) => {
       //   console.log("Error", err);
       // });
