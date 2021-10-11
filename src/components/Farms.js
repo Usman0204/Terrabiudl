@@ -19,8 +19,10 @@ const Farms = () => {
   const [deposit, setDeposit] = React.useState();
   const [balaceOf,setbalanceof]=React.useState();
   const [withdraw, setWithdraw] = React.useState();
+  const [approveBalance, setapproveBalance] = React.useState();
   useEffect(() => {
     balanceofContract();
+    approvebalanceofContract();
     //  DisruptiveTransfer();
   }, [])
   const [show, setshow] = React.useState(true)
@@ -99,7 +101,18 @@ const Farms = () => {
       //   console.log("Error", err);
       // });
   }
+  const approvebalanceofContract = async () => {
+    const accounts = await getaccount()
+  
+     const b = await gettbdlpcontract().methods.allowance(accounts[0],Environment.masterChefContractAddress).call()
+    // const bValue= b/ 10**18
+     setapproveBalance(b)
+      // .on("error", (err) => {
+      //   console.log("Error", err);
+      // });
+  }
 
+  console.log("approve", approveBalance)
   console.log(balaceOf);
   const confirmDeposit = async () => {
     const accounts = await getaccount()
@@ -181,7 +194,7 @@ const Farms = () => {
                   </div> */}
                 </div>
               </div>
-              {show ?
+              { approveBalance <=0 ?
                 <div className="row brdr ptb20">
                   <div className="col-sm-12">
                     <button className="btn-common" onClick={showinput} >Approve Contract</button>
@@ -222,9 +235,9 @@ const Farms = () => {
                                             <span className="size12">TBD/BNB
                                               LP</span>
                                           </li>
-                                          <li className="list-inline-item">
+                                          {/* <li className="list-inline-item">
                                             <button className="btn-common size12">MAX</button>
-                                          </li>
+                                          </li> */}
                                         </ul>
                                       </div>
                                     </div>
@@ -274,9 +287,9 @@ const Farms = () => {
                                             <span className="size12">TBD/BNB
                                               LP</span>
                                           </li>
-                                          <li className="list-inline-item">
+                                          {/* <li className="list-inline-item">
                                             <button className="btn-common size12">MAX</button>
-                                          </li>
+                                          </li> */}
                                         </ul>
                                       </div>
                                     </div>
