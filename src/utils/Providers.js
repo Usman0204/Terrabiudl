@@ -25,6 +25,7 @@
 
 import Web3 from "web3";
 import yfethabi from './yfethAbi.json';
+import bnblp from './bnblp.json'
 import masterchefabi from './masterchefAbi.json'
 import Environment from './Environment';
 
@@ -49,6 +50,15 @@ const getContractMasterChef=()=>{
 
     )
 }
+
+const gettbdlpcontract=()=>{
+    const web3=getWeb3();
+    return new web3.eth.Contract(
+        bnblp,
+        Environment.tbdbnblptoken,
+    )
+
+}
 // console.log("getContract",getContract());
 
 //In getaccount we receive a promise and resolve it.
@@ -65,4 +75,4 @@ const getaccount= ()=>{
   export default getWeb3;
 
 
-export{getaccount,getContract,getContractMasterChef};
+export{getaccount,getContract,getContractMasterChef,gettbdlpcontract};

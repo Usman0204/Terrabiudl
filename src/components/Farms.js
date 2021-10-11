@@ -4,6 +4,7 @@ import './farms.css';
 import getWeb3 from '../utils/Providers';
 import { getContract } from '../utils/Providers';
 import { getContractMasterChef } from '../utils/Providers';
+import { gettbdlpcontract } from '../utils/Providers';
 import { getaccount } from '../utils/Providers'
 import { ContarctAction } from '../redux/action';
 import { useDispatch } from "react-redux";
@@ -91,7 +92,7 @@ const Farms = () => {
   const balanceofContract = async () => {
     const accounts = await getaccount()
   
-     const b=await getContract().methods.balanceOf(accounts[0]).call()
+     const b=await gettbdlpcontract().methods.balanceOf(accounts[0]).call()
      setbalanceof(b)
       // .on("error", (err) => {
       //   console.log("Error", err);
