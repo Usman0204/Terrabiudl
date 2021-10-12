@@ -141,6 +141,8 @@ const Farms = () => {
     }
   
   }
+
+  
   return (
     <>
       <section className="main-bg">
@@ -310,7 +312,7 @@ const Farms = () => {
 
               <div className="row">
                 <div className="col-sm-12 text-center">
-                  <Link className="common-g" type="button" data-toggle="modal" data-target="#exampleModal">ROI</Link>
+                  <a className="common-g" type="button" data-toggle="modal" data-target="#exampleModal">ROI</a>
                   <div className="modal fade" id="exampleModal" tabIndex={-1} role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div className="modal-dialog" role="document">
                       <div className="modal-content">
@@ -335,6 +337,48 @@ const Farms = () => {
                               <h6 className="grey">0.11</h6>
                             </div>
                           </div>
+                          <div className="row">
+                            <div className="col-sm-4">
+                              <h5>TIMEFRAME</h5>
+                              <h6 className="grey">7d</h6>
+                            </div>
+                            <div className="col-sm-4">
+                              <h5>ROI</h5>
+                              <h6 className="grey">0.15%</h6>
+                            </div>
+                            <div className="col-sm-4">
+                              <h5>TBD PER $1,000</h5>
+                              <h6 className="grey">0.11</h6>
+                            </div>
+                          </div>
+                          <div className="row">
+                            <div className="col-sm-4">
+                              <h5>TIMEFRAME</h5>
+                              <h6 className="grey">30d</h6>
+                            </div>
+                            <div className="col-sm-4">
+                              <h5>ROI</h5>
+                              <h6 className="grey">0.15%</h6>
+                            </div>
+                            <div className="col-sm-4">
+                              <h5>TBD PER $1,000</h5>
+                              <h6 className="grey">0.11</h6>
+                            </div>
+                          </div>
+                          <div className="row">
+                            <div className="col-sm-4">
+                              <h5>TIMEFRAME</h5>
+                              <h6 className="grey">365d</h6>
+                            </div>
+                            <div className="col-sm-4">
+                              <h5>ROI</h5>
+                              <h6 className="grey">0.15%</h6>
+                            </div>
+                            <div className="col-sm-4">
+                              <h5>TBD PER $1,000</h5>
+                              <h6 className="grey">0.11</h6>
+                            </div>
+                          </div>
                           <div className="row ptb20">
                             <div className="col-sm-12 text-center">
                               <p className="grey">Calculated based on
@@ -343,8 +387,8 @@ const Farms = () => {
                                 provided for your convenience
                                 only, and by no means represent
                                 guaranteed returns.</p>
-                              <Link className="common-g"> <span> Get
-                                TBD-BNB LP</span> <img src="assets/img/TBD-assets/external-link-icon.svg" alt="" className="img-fluid" /> </Link>
+                              <a className="common-g" href="https://bscscan.com/address/0xF64BFCB92A87FE580ddd013a4d15a997d46AE570" target="_blank"> <span> Get
+                                TBD-BNB LP</span> <img src="assets/img/TBD-assets/external-link-icon.svg" alt="" className="img-fluid" /> </a>
                             </div>
                           </div>
                         </div>

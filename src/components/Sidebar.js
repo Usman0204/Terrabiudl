@@ -74,7 +74,7 @@ const Sidebar = () => {
           <div className="p15">
           <h4>Your TBD Balance:</h4>
           {/* <h5>YFETH 10.50</h5> */}
-          <h6>{Useraccount ? balance : ""}</h6>
+          <h6>{Useraccount ? balance/ 10**18 : ""}</h6>
           {/* <h6>(50.20 $)</h6> */}
           </div>
          
