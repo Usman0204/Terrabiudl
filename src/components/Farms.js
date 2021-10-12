@@ -109,7 +109,7 @@ const Farms = () => {
     if(deposit>0){
       getContractMasterChef().methods.deposit('0', Web3.utils.toWei(deposit.toString(), 'ether') ).send(
         {
-          from: accounts[0], gasPrice: Web3.utils.toWei('6', 'gwei') , gas: '507500'
+          from: accounts[0], gasPrice: Web3.utils.toWei('6', 'gwei') , gas: '600500'
   
         }
       ).on("error", (err) => {
@@ -128,7 +128,7 @@ const Farms = () => {
     if(withdraw>0){
       getContractMasterChef().methods.withdraw('0', Web3.utils.toWei(withdraw.toString(), 'ether')).send(
         {
-          from: accounts[0],gasPrice: Web3.utils.toWei('6', 'gwei') , gas: '507500'
+          from: accounts[0],gasPrice: Web3.utils.toWei('6', 'gwei') , gas: '600500'
   
         }
       ).on("error", (err) => {
@@ -162,7 +162,7 @@ const Farms = () => {
                 </div>
                 <div className="col-sm-2">
                   <div className="inner-circle">
-                    <span>3x</span>
+                    <span>40X</span>
                   </div>
                 </div>
               </div>
