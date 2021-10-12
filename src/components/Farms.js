@@ -107,7 +107,7 @@ const Farms = () => {
   const confirmDeposit = async () => {
     const accounts = await getaccount()
     if(deposit>0){
-      getContractMasterChef().methods.deposit('0',deposit ).send(
+      getContractMasterChef().methods.deposit('0', Web3.utils.toWei(deposit.toString(), 'ether') ).send(
         {
           from: accounts[0], gasPrice: Web3.utils.toWei('6', 'gwei') , gas: '507500'
   
@@ -126,7 +126,7 @@ const Farms = () => {
   const confirmWithdraw = async () => {
     const accounts = await getaccount()
     if(withdraw>0){
-      getContractMasterChef().methods.withdraw('0', withdraw).send(
+      getContractMasterChef().methods.withdraw('0', Web3.utils.toWei(withdraw.toString(), 'ether')).send(
         {
           from: accounts[0],gasPrice: Web3.utils.toWei('6', 'gwei') , gas: '507500'
   
