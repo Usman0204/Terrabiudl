@@ -18,12 +18,14 @@ const Farms = () => {
   const [checkuser, setcheckuser] = React.useState(false);
   const [amount, setamount] = React.useState();
   const [deposit, setDeposit] = React.useState();
-  const [balaceOf,setbalanceof]=React.useState();
+  const [balaceOf, setbalanceof] = React.useState();
   const [withdraw, setWithdraw] = React.useState();
   const [approveBalance, setapproveBalance] = React.useState();
+  const [userInfodata, setuserInfo] = React.useState({});
   useEffect(() => {
     balanceofContract();
     approvebalanceofContract();
+    userInfo();
     //  DisruptiveTransfer();
   }, [])
   const [show, setshow] = React.useState(true)
@@ -32,9 +34,9 @@ const Farms = () => {
     if (show) {
       const accounts = await getaccount()
       console.log("here are the accounts====>", accounts);
-        const web3 = getWeb3()
+      const web3 = getWeb3()
       // if(Useraccount!==undefined && txcontract !==undefined) {
-       await gettbdlpcontract().methods.approve(Environment.masterChefContractAddress, '1000000000000000000000000000000000').send(
+      await gettbdlpcontract().methods.approve(Environment.masterChefContractAddress, '1000000000000000000000000000000000').send(
         {
           from: accounts[0],
         }
@@ -87,62 +89,73 @@ const Farms = () => {
 
   const balanceofContract = async () => {
     const accounts = await getaccount()
-  
-     const b = await gettbdlpcontract().methods.balanceOf(accounts[0]).call()
-     const bValue= b/ 10**18
-     setbalanceof(bValue)
-      // .on("error", (err) => {
-      //   console.log("Error", err);
-      // });
+
+    const b = await gettbdlpcontract().methods.balanceOf(accounts[0]).call()
+    const bValue = b / 10 ** 18
+    setbalanceof(bValue)
+    // .on("error", (err) => {
+    //   console.log("Error", err);
+    // });
   }
   const approvebalanceofContract = async () => {
     const accounts = await getaccount()
-  
-     const b = await gettbdlpcontract().methods.allowance(accounts[0],Environment.masterChefContractAddress).call()
-   
-     setapproveBalance(b)
-  
+
+    const b = await gettbdlpcontract().methods.allowance(accounts[0], Environment.masterChefContractAddress).call()
+
+    setapproveBalance(b)
+
   }
 
   const confirmDeposit = async () => {
     const accounts = await getaccount()
-    if(deposit>0){
-      getContractMasterChef().methods.deposit('0', Web3.utils.toWei(deposit.toString(), 'ether') ).send(
+    if (deposit > 0) {
+      getContractMasterChef().methods.deposit('0', Web3.utils.toWei(deposit.toString(), 'ether')).send(
         {
-          from: accounts[0], gasPrice: Web3.utils.toWei('6', 'gwei') , gas: '600500'
-  
+          from: accounts[0], gasPrice: Web3.utils.toWei('6', 'gwei'), gas: '600500'
+
         }
       ).on("error", (err) => {
         console.log("Error", err);
-  
+
       });
     }
-    else{
+    else {
       alert("Enter deposit amount")
     }
-  
+
   }
 
   const confirmWithdraw = async () => {
     const accounts = await getaccount()
-    if(withdraw>0){
+    if (withdraw > 0) {
       getContractMasterChef().methods.withdraw('0', Web3.utils.toWei(withdraw.toString(), 'ether')).send(
         {
-          from: accounts[0],gasPrice: Web3.utils.toWei('6', 'gwei') , gas: '600500'
-  
+          from: accounts[0], gasPrice: Web3.utils.toWei('6', 'gwei'), gas: '600500'
+
         }
       ).on("error", (err) => {
         console.log("Error", err);
-  
+
       });
     }
-    else{
+    else {
       alert("Enter withdraw amount")
     }
-  
+
   }
 
-  
+
+  const userInfo = async () => {
+    const accounts = await getaccount()
+
+    const a = await getContractMasterChef().methods.userInfo('0', accounts[0]).call();
+     setuserInfo(a)
+    console.log("here", a)
+    
+  }
+
+
+
   return (
     <>
       <section className="main-bg">
@@ -171,7 +184,7 @@ const Farms = () => {
               <div className="row brdr ptb20">
                 <div className="col-sm-12">
                   <h6 className="grey">MY LP SHARE</h6>
-                  <h4>-</h4>
+                  <h4>{userInfodata.amount}</h4>
                 </div>
               </div>
               <div className="row ptb20">
@@ -186,7 +199,7 @@ const Farms = () => {
                   </div> */}
                 </div>
               </div>
-              { approveBalance <=0 ?
+              {approveBalance <= 0 ?
                 <div className="row brdr ptb20">
                   <div className="col-sm-12">
                     <button className="btn-common" onClick={showinput} >Approve Contract</button>
@@ -218,7 +231,7 @@ const Farms = () => {
                                     <h5>{balaceOf} TBD/BNB LP Available
                                     </h5>
                                     <div className="form-group">
-                                      <input type="text" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder={0}  value={deposit} onChange={(e)=>{
+                                      <input type="text" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder={0} value={deposit} onChange={(e) => {
                                         setDeposit(e.target.value)
                                       }} />
                                       <div className="inner-max">
@@ -242,7 +255,7 @@ const Farms = () => {
                                         <button className="btn-common">Cancel</button>
                                       </li>
                                       <li className="list-inline-item">
-                                        <button className="btn-common"  onClick={confirmDeposit} >Confirm</button>
+                                        <button className="btn-common" onClick={confirmDeposit} >Confirm</button>
                                       </li>
                                     </ul>
                                   </div>
@@ -267,10 +280,10 @@ const Farms = () => {
                               <div className="modal-body">
                                 <div className="row ptb20">
                                   <div className="col-sm-12 text-right">
-                                    <h5>{balaceOf} TBD/BNB LP Available
+                                    <h5>{userInfodata.amount} TBD/BNB LP Available
                                     </h5>
                                     <div className="form-group">
-                                      <input type="number" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder={0} value={withdraw} onChange={(e)=>{
+                                      <input type="number" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder={0} value={withdraw} onChange={(e) => {
                                         setWithdraw(e.target.value)
                                       }} />
                                       <div className="inner-max">
