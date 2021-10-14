@@ -184,7 +184,7 @@ const Farms = () => {
               <div className="row brdr ptb20">
                 <div className="col-sm-12">
                   <h6 className="grey">MY LP SHARE</h6>
-                  <h4>{userInfodata.amount}</h4>
+                  <h4>{userInfodata.amount/ 10**18}</h4>
                 </div>
               </div>
               <div className="row ptb20">
@@ -280,7 +280,7 @@ const Farms = () => {
                               <div className="modal-body">
                                 <div className="row ptb20">
                                   <div className="col-sm-12 text-right">
-                                    <h5>{userInfodata.amount} TBD/BNB LP Available
+                                    <h5>{userInfodata.amount/ 10**18} TBD/BNB LP Available
                                     </h5>
                                     <div className="form-group">
                                       <input type="number" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder={0} value={withdraw} onChange={(e) => {
